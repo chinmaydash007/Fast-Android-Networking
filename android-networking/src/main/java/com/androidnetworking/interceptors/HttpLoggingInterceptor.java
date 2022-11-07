@@ -19,6 +19,8 @@
 
 package com.androidnetworking.interceptors;
 
+import static okhttp3.internal.platform.Platform.INFO;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -37,8 +39,6 @@ import okhttp3.internal.http.HttpHeaders;
 import okhttp3.internal.platform.Platform;
 import okio.Buffer;
 import okio.BufferedSource;
-
-import static okhttp3.internal.platform.Platform.INFO;
 
 /**
  * Created by amitshekhar on 31/01/17.
@@ -115,7 +115,7 @@ public class HttpLoggingInterceptor implements Interceptor {
         Logger DEFAULT = new Logger() {
             @Override
             public void log(String message) {
-                Platform.get().log(INFO, message, null);
+                Platform.get().log(message, INFO, null);
             }
         };
     }
